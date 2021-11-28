@@ -1,0 +1,81 @@
+body{
+    background: rgb(130, 193, 204);
+    background: linear-gradient(90deg, rgb(174, 78, 230) 0%, rgb(198, 131, 200) 0%, rgb(96, 159, 231) 100%);
+}
+#reloj{
+    font-family: sans-serif;
+    font-size: 60px;
+    text-shadow: 0px 0px 1px #333;
+    color: #fff;
+}
+#hora{
+    margin-top: 5%;
+    letter-spacing: 2px;
+}
+
+#pomodoro-mode{
+    margin-top: 5%;
+    padding: 15px;
+    font-size: 20px;
+}
+.options{
+    padding: 10px;
+    border: none;
+    margin: none;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+}
+.options:active{
+    border-bottom: #fff solid 2px;
+}
+.botones-contenedor{
+    font-family: sans-serif;
+    text-align: center;
+    color: white;
+}
+.btn{
+    padding: 15px;
+    border: rgb(200, 200, 200) solid 1px;
+    border-radius: 15px;
+    width: 100px;
+    color: white;
+    background-color:rgba(0,0,0, .5);
+    cursor: pointer;
+}
+.btn:active{
+    transform: scale(.9);
+}
+.reloj-contenedor{
+    background-color: rgba(0, 0, 0, .5);
+    border: rgb(200, 200, 200) solid 1px;
+    padding: 26px;
+    max-width: 450px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+.parpadeo{
+    color: transparent;
+}
+
+.modo-activo{
+    border-bottom: #fff solid 2px;
+}
+
+footer{
+    width: 100%;
+    margin-top: 30vh;
+}
+#footer-text{
+    padding: 10px;
+    font-size: 12px;
+    color: rgb(149,166,163);
+    text-align: center;
+}
+footer a{
+    color:white;
+    text-decoration: none;
+}
