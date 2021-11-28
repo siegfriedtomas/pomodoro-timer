@@ -6,3 +6,5 @@ Por el momento cuenta con:
 -Contador Pomodoro con los tres modos de conteo ('Pomodoro' , 'Short Break' , 'Long Break')
 -Botones para su uso ('Inicio - Pausa' , 'Reset')
 -Campanada al completarse el ciclo.
+
+https://github.com/siegfriedtomas/pomodoro-timer.github.io
