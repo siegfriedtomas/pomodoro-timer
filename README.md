@@ -7,4 +7,4 @@ Por el momento cuenta con:
 -Botones para su uso ('Inicio - Pausa' , 'Reset')
 -Campanada al completarse el ciclo.
 
-https://github.com/siegfriedtomas/pomodoro-timer.github.io
+https://siegfriedtomas.github.io/pomodoro-timer.github.io/
