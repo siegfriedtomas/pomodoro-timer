@@ -2,13 +2,13 @@ body{
     background: rgb(130, 193, 204);
     background: linear-gradient(90deg, rgb(174, 78, 230) 0%, rgb(198, 131, 200) 0%, rgb(96, 159, 231) 100%);
 }
-#reloj{
+#watch{
     font-family: sans-serif;
     font-size: 60px;
     text-shadow: 0px 0px 1px #333;
     color: #fff;
 }
-#hora{
+#time{
     margin-top: 5%;
     letter-spacing: 2px;
 }
@@ -29,7 +29,7 @@ body{
 .options:active{
     border-bottom: #fff solid 2px;
 }
-.botones-contenedor{
+.btns-container{
     font-family: sans-serif;
     text-align: center;
     color: white;
@@ -46,7 +46,7 @@ body{
 .btn:active{
     transform: scale(.9);
 }
-.reloj-contenedor{
+.watch-container{
     background-color: rgba(0, 0, 0, .5);
     border: rgb(200, 200, 200) solid 1px;
     padding: 26px;
@@ -57,11 +57,11 @@ body{
     margin-top: 10%;
 }
 
-.parpadeo{
+.blink{
     color: transparent;
 }
 
-.modo-activo{
+.active{
     border-bottom: #fff solid 2px;
 }
 
