@@ -1,114 +1,114 @@
-let minutos=25;
-let segundos=00;
+let minutes=25;
+let seconds=00;
 
 let startWatch=null;
 let state="stopped";
 
 let bells = document.createElement('audio');
-bells.src = './media/BellTransition.mp3'
+bells.src = './media/BellTransition.mp3';
+let btnStart = document.getElementById('btn-start');
+let btnPom = document.getElementById('btn-pom');
+let btnSb = document.getElementById('btn-sb');
+let btnLb = document.getElementById('btn-lb');
+let title = document.getElementById('title');
+let time = document.getElementById("time");
+let mode = "pomodoro";
+btnPom.classList.add("active");
 
-let btn_pom = document.getElementById('btn-pom');
-let btn_sb = document.getElementById('btn-sb');
-let btn_lb = document.getElementById('btn-lb');
-let titulo = document.getElementById('titulo');
-let modo = "pomodoro";
-document.getElementById("btn-pom").classList.add("modo-activo");
-
-btn_pom.addEventListener('click',function(){
-    titulo.innerHTML = "Pomodoro";
-    modo = "pomodoro";
-    minutos = 25;
-    segundos = 00;
-    document.getElementById("btn-lb").classList.remove('modo-activo');
-    document.getElementById("btn-sb").classList.remove("modo-activo");
-    document.getElementById("btn-pom").classList.add("modo-activo");
-    document.getElementById("hora").innerHTML = "25:00";
+btnPom.addEventListener('click',function(){
+    title.innerHTML = "Pomodoro";
+    mode = "pomodoro";
+    minutes = 25;
+    seconds = 00;
+    btnLb.classList.remove('active');
+    btnSb.classList.remove('active');
+    btnPom.classList.add('active');
+    time.innerHTML = "25:00";
 });
 
-btn_sb.addEventListener('click',function(){
-    titulo.innerHTML = "Short Break";
-    modo = "short-break";
-    minutos = 05;
-    segundos = 00;
-    document.getElementById("btn-pom").classList.remove('modo-activo');
-    document.getElementById("btn-lb").classList.remove('modo-activo');
-    document.getElementById("btn-sb").classList.add("modo-activo");
-    document.getElementById("hora").innerHTML = "05:00";
+btnSb.addEventListener('click',function(){
+    title.innerHTML = "Short Break";
+    mode = "short-break";
+    minutes = 05;
+    seconds = 00;
+    btnPom.classList.remove('active');
+    btnLb.classList.remove('active');
+    btnSb.classList.add('active');
+    time.innerHTML = "05:00";
 });
 
-btn_lb.addEventListener('click',function(){
-    titulo.innerHTML = "Long Break";
-    modo = "long-break";
-    minutos = 15;
-    segundos = 00;
-    document.getElementById("btn-pom").classList.remove('modo-activo');
-    document.getElementById("btn-sb").classList.remove('modo-activo');
-    document.getElementById("btn-lb").classList.add("modo-activo");
-    document.getElementById("hora").innerHTML = "15:00";
+btnLb.addEventListener('click',function(){
+    title.innerHTML = "Long Break";
+    mode = "long-break";
+    minutes = 15;
+    seconds = 00;
+    btnPom.classList.remove('active');
+    btnSb.classList.remove('active');
+    btnLb.classList.add("active");
+    time.innerHTML = "15:00";
 });
-
 
 
 const pomodoro=()=>{
-    let mostrarMinutos=minutos;
-    let mostrarSegundos=segundos;
+    let displayMinutes=minutes;
+    let displaySeconds=seconds;
 
-    if(segundos!=0){
-        segundos--;
-    }else if(segundos==0 && minutos!=0){
-        minutos--;
-        segundos = 59;
+    if(seconds!=0){
+        seconds--;
+    }else if(seconds==0 && minutes!=0){
+        minutes--;
+        seconds = 59;
     }
 
-    if(segundos<10){
-        mostrarSegundos = "0" + segundos;
+    if(seconds<10){
+        displaySeconds = "0" + seconds;
     }else{
-        mostrarSegundos = segundos;
+        displaySeconds = seconds;
     }
-    if(minutos<10){
-        mostrarMinutos = "0" + minutos;
+    if(minutes<10){
+        displayMinutes = "0" + minutes;
     }else{
-        mostrarMinutos = minutos;
+        displayMinutes = minutes;
     }
-    document.getElementById("hora").innerHTML = mostrarMinutos + ":" + mostrarSegundos;
+    time.innerHTML = displayMinutes + ":" + displaySeconds;
 
-    if(minutos===0 & segundos === 0){
-        document.getElementById('hora').classList.toggle('parpadeo');
+    if(minutes===0 & seconds === 0){
+        time.classList.toggle('blink');
         bells.play();
     }
 }
 
-function startPause(){
+const startPause=()=>{
     if(state === "stopped"){
         startWatch = setInterval(pomodoro,1000);
-        document.getElementById('btn-inicio').innerHTML = "Pausa";
+        btnStart.innerHTML = "Pause";
         state = "started";
     }else{
         window.clearInterval(startWatch);
-        document.getElementById('btn-inicio').innerHTML = "Inicio";
+        btnStart.innerHTML = "Start";
         state = "stopped";
     }
 }
 
 
-function toReset(){
+const toReset=()=>{
     clearInterval(startWatch);
-    document.getElementById('hora').classList.remove('parpadeo');
-    if(modo==="pomodoro"){
-        minutos = 25;
-        segundos = 00;
-        document.getElementById('btn-inicio').innerHTML="Inicio";
-        document.getElementById("hora").innerHTML = "25:00";
-    }else if(modo==="short-break"){
-        minutos = 05;
-        segundos = 00;
-        document.getElementById('btn-inicio').innerHTML="Inicio";
-        document.getElementById("hora").innerHTML = "05:00";
-    }else if(modo==="long-break"){
-        minutos = 15;
-        segundos = 00;
-        document.getElementById('btn-inicio').innerHTML="Inicio";
-        document.getElementById("hora").innerHTML = "15:00";
+    time.classList.remove('blink');
+    if(mode==="pomodoro"){
+        minutes = 25;
+        seconds = 00;
+        btnStart.innerHTML="Start";
+        time.innerHTML = "25:00";
+    }else if(mode==="short-break"){
+        minutes = 05;
+        seconds = 00;
+        btnStart.innerHTML="Start";
+        time.innerHTML = "05:00";
+    }else if(mode==="long-break"){
+        minutes = 15;
+        seconds = 00;
+        btnStart.innerHTML="Start";
+        time.innerHTML = "15:00";
     }   
 }
 
