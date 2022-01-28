@@ -94,6 +94,7 @@ const startPause=()=>{
 const toReset=()=>{
     clearInterval(startWatch);
     time.classList.remove('blink');
+    state = "stopped";
     if(mode==="pomodoro"){
         minutes = 25;
         seconds = 00;
@@ -109,7 +110,7 @@ const toReset=()=>{
         seconds = 00;
         btnStart.innerHTML="Start";
         time.innerHTML = "15:00";
-    }   
+    }
 }
 
 
